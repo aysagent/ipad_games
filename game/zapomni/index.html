@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru" manifest="../../app.appcache">
+<head>
+  <meta charset="utf-8">
+  <!-- app-icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Игры">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../icons/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../icons/apple-touch-icon-144.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../icons/apple-touch-icon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="../../icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../../icons/favicon.png">
+  <!-- /app-icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Запомни и найди</title>
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+  <div class="app">
+    <div class="game-top">
+      <button type="button" class="btn btn-home" data-href="../../index.html"><span class="home-ico">🏠</span>Домой</button>
+      <h1 class="game-title">Запомни и найди</h1>
+      <button type="button" class="btn btn-reload" id="btn-reload" title="Обновить"><span class="reload-ico">🔄</span></button>
+    </div>
+    <div class="level-bar" id="level-bar"></div>
+    <div class="progress-pills" id="progress-pills"></div>
+    <p class="prompt" id="prompt">Нажми «Показать»</p>
+    <div class="play-area">
+      <div id="main" class="emo-row" style="min-height:70px;margin-bottom:12px"></div>
+      <div id="choices" class="choices"></div>
+      <button type="button" class="btn btn-secondary" id="start-btn">Показать</button>
+      <button type="button" class="btn" id="check-btn" style="display:none;margin-top:10px">Готово</button>
+    </div>
+  </div>
+  <script src="../../js/common.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

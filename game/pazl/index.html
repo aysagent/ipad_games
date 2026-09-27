@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru" manifest="../../app.appcache">
+<head>
+  <meta charset="utf-8">
+  <!-- app-icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Игры">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../icons/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../icons/apple-touch-icon-144.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../icons/apple-touch-icon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="../../icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../../icons/favicon.png">
+  <!-- /app-icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Собери пазл</title>
+  <link rel="stylesheet" href="../../css/common.css">
+  <style>
+    .puzzle-stage {
+      max-width: 320px;
+      margin: 0 auto;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .puzzle-preview-label {
+      font-size: 0.85em;
+      color: #5a6a60;
+      margin: 0 0 6px;
+    }
+    .puzzle-board {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      background: #fffaf2;
+      border-radius: 12px;
+      border: 3px solid #3d7a5f;
+      overflow: hidden;
+    }
+    .puzzle-ghost {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .puzzle-slot {
+      position: absolute;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border: 1px dashed rgba(61, 122, 95, 0.35);
+      z-index: 1;
+    }
+    .puzzle-slot.is-target {
+      background: rgba(61, 122, 95, 0.18);
+      border-color: #3d7a5f;
+    }
+    .puzzle-piece {
+      position: absolute;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      background-repeat: no-repeat;
+      z-index: 3;
+      cursor: pointer;
+      -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .puzzle-piece.is-placed {
+      border-color: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .puzzle-piece.is-dragging {
+      z-index: 30;
+      opacity: 0.95;
+      -webkit-box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    }
+    .puzzle-tray {
+      position: relative;
+      margin: 14px auto 0;
+      width: 300px;
+      min-height: 110px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 12px;
+      border: 2px dashed rgba(61, 122, 95, 0.3);
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="game-top">
+      <button type="button" class="btn btn-home" data-href="../../index.html"><span class="home-ico">🏠</span>Домой</button>
+      <h1 class="game-title">Собери пазл</h1>
+      <button type="button" class="btn btn-reload" id="btn-reload" title="Обновить"><span class="reload-ico">🔄</span></button>
+    </div>
+    <div class="level-bar" id="level-bar"></div>
+    <div class="progress-pills" id="progress-pills"></div>
+    <p class="prompt" id="prompt">Собери картинку — перетащи кусочки</p>
+    <div class="play-area">
+      <div class="puzzle-stage" id="stage">
+        <p class="puzzle-preview-label" id="scene-name"></p>
+        <div class="puzzle-board" id="board"></div>
+        <div class="puzzle-tray" id="tray"></div>
+      </div>
+    </div>
+  </div>
+  <script src="../../js/common.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

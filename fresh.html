@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Обновление</title>
+  <link rel="stylesheet" href="css/common.css">
+  <!-- без manifest — страница НЕ в AppCache, всегда с сети -->
+</head>
+<body>
+  <div class="app">
+    <h1 class="home-title" style="font-size:1.5em">Обновление</h1>
+    <p class="home-sub" id="status" style="margin:16px 0">Нужен интернет…</p>
+    <p class="home-sub" style="text-align:left;margin:12px 0">
+      Если после этого всё равно старая версия:<br>
+      Настройки → Safari → <b>Очистить историю и данные</b>,<br>
+      затем снова откройте сайт.
+    </p>
+    <p style="text-align:center;margin-top:20px">
+      <a class="btn" id="go-home" href="index.html">Открыть игры</a>
+    </p>
+  </div>
+  <script>
+    (function () {
+      var status = document.getElementById('status');
+      var params = {};
+      var q = (window.location.search || '').replace(/^\?/, '').split('&');
+      var i;
+      for (i = 0; i < q.length; i++) {
+        var p = q[i].split('=');
+        if (p[0]) params[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || '');
+      }
+
+      var target = 'index.html?r=' + Date.now();
+      document.getElementById('go-home').href = target;
+
+      function go() {
+        try {
+          window.location.replace(target);
+        } catch (e) {
+          window.location.href = target;
+        }
+      }
+
+      /* iframe тянет новый index с ?r= — попадание в NETWORK, не в старый CACHE */
+      function primeCacheThenGo() {
+        status.textContent = 'Качаю новую версию…';
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = target;
+        document.body.appendChild(iframe);
+        setTimeout(go, 1200);
+      }
+
+      var cache = window.applicationCache;
+      if (cache && typeof cache.update === 'function' && cache.status !== cache.UNCACHED) {
+        status.textContent = 'Проверяю AppCache…';
+        function after() {
+          try {
+            if (cache.status === cache.UPDATEREADY) cache.swapCache();
+          } catch (e2) {}
+          primeCacheThenGo();
+        }
+        try {
+          cache.addEventListener('updateready', after, false);
+          cache.addEventListener('noupdate', after, false);
+          cache.addEventListener('error', after, false);
+          cache.update();
+        } catch (e3) {
+          primeCacheThenGo();
+        }
+        setTimeout(after, 3500);
+      } else {
+        primeCacheThenGo();
+      }
+
+      /* если открыли вручную без auto — всё равно можно жать кнопку */
+      if (params.auto !== '1') {
+        status.textContent = 'Нажмите «Открыть игры» или подождите…';
+      }
+    })();
+  </script>
+</body>
+</html>

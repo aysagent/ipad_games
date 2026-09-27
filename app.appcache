@@ -1,0 +1,56 @@
+CACHE MANIFEST
+# bust 20260927233748081
+# content c2a5fcbf2b46
+# generated 2026-09-27 23:37:48
+# Не редактируйте вручную — npm run appcache
+
+CACHE:
+css/common.css
+game/chto-bolshe/game.js
+game/chto-bolshe/index.html
+game/chto-propalo/game.js
+game/chto-propalo/index.html
+game/kto-chto/game.js
+game/kto-chto/index.html
+game/labirint/game.js
+game/labirint/index.html
+game/lishnee/game.js
+game/lishnee/index.html
+game/memori/game.js
+game/memori/index.html
+game/naydi-paru/game.js
+game/naydi-paru/index.html
+game/otlichiya/game.js
+game/otlichiya/index.html
+game/pazl/game.js
+game/pazl/index.html
+game/piano/game.js
+game/piano/index.html
+game/primery/game.js
+game/primery/index.html
+game/prochitaj/game.js
+game/prochitaj/index.html
+game/ryad/game.js
+game/ryad/index.html
+game/sezony/game.js
+game/sezony/index.html
+game/simon/game.js
+game/simon/index.html
+game/slogi-slovo/game.js
+game/slogi-slovo/index.html
+game/vstav-bukvu/game.js
+game/vstav-bukvu/index.html
+game/zapomni/game.js
+game/zapomni/index.html
+icons/apple-touch-icon-144.png
+icons/apple-touch-icon-152.png
+icons/apple-touch-icon-72.png
+icons/apple-touch-icon.png
+icons/favicon.png
+index.html
+js/common.js
+js/data/words.js
+js/data/world.js
+
+NETWORK:
+*

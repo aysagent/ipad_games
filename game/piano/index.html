@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru" manifest="../../app.appcache">
+<head>
+  <meta charset="utf-8">
+  <!-- app-icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Игры">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../icons/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../icons/apple-touch-icon-144.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../icons/apple-touch-icon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="../../icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../../icons/favicon.png">
+  <!-- /app-icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Пианино</title>
+  <link rel="stylesheet" href="../../css/common.css">
+  <style>
+    /* Жёстко перекрываем common.css (.app { max-width:900px; margin:0 auto }) */
+    html.piano-html,
+    html.piano-html body,
+    body.piano-page {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100%;
+      overflow: hidden !important;
+      background: #2a221c !important;
+    }
+    body.piano-page .app {
+      height: 100% !important;
+      max-width: none !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 4px 0 0 !important;
+      -webkit-box-sizing: border-box !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      background: transparent !important;
+    }
+    body.piano-page .game-top,
+    body.piano-page .prompt,
+    body.piano-page .piano-mode,
+    body.piano-page .melody-btns,
+    body.piano-page .piano-hint {
+      padding-left: 8px;
+      padding-right: 8px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    body.piano-page .game-top { margin-bottom: 2px; }
+    body.piano-page .prompt {
+      margin: 0 0 4px;
+      font-size: 0.9em;
+      min-height: 1.1em;
+      color: #f5e6c8;
+    }
+    .piano-wrap {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .piano-mode { text-align: center; margin-bottom: 4px; }
+    .piano-mode .btn {
+      margin: 2px;
+      padding: 8px 12px;
+      font-size: 0.9em;
+    }
+    /* Ширину в px выставляет game.js по innerWidth — на всю ширину окна */
+    .piano-body {
+      background: #111;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: none !important;
+      position: relative;
+      left: 0;
+    }
+    #keyboard {
+      position: relative;
+      display: block;
+      max-width: none !important;
+      height: 312px;
+      background: #111;
+      border-radius: 0;
+      overflow: hidden;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .piano-hint {
+      text-align: center;
+      font-size: 0.8em;
+      color: #cbb89a;
+      margin: 4px 0 0;
+      min-height: 1em;
+    }
+    .melody-btns { text-align: center; margin: 2px 0 4px; }
+    .melody-btns .btn {
+      margin: 2px;
+      padding: 8px 10px;
+      font-size: 0.85em;
+    }
+    body.piano-page .game-title { color: #f5e6c8; }
+  </style>
+</head>
+<body class="piano-page">
+  <div class="app" id="piano-app" style="max-width:none;width:100%;margin:0;padding:4px 0 0">
+    <div class="game-top">
+      <button type="button" class="btn btn-home" data-href="../../index.html"><span class="home-ico">🏠</span>Домой</button>
+      <h1 class="game-title">Пианино</h1>
+      <button type="button" class="btn btn-reload" id="btn-reload" title="Обновить"><span class="reload-ico">🔄</span></button>
+    </div>
+    <p class="prompt" id="prompt">Свободная игра — 2 октавы</p>
+    <div class="piano-wrap">
+      <div class="piano-mode">
+        <button type="button" class="btn btn-secondary" id="mode-free">Свободная игра</button>
+        <button type="button" class="btn" id="mode-learn">Повтори мелодию</button>
+      </div>
+      <div class="melody-btns" id="melody-btns" style="display:none"></div>
+      <div class="piano-body" id="piano-body">
+        <div id="keyboard"></div>
+      </div>
+      <p class="piano-hint" id="hint">2 октавы с чёрными клавишами</p>
+    </div>
+  </div>
+  <script src="../../js/common.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

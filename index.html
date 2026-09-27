@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru" manifest="app.appcache">
+<head>
+  <meta charset="utf-8">
+  <!-- app-icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Игры">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <!-- /app-icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Игры для малышей</title>
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+  <div class="app">
+    <header class="home-header">
+      <div class="home-toolbar">
+        <button type="button" class="btn btn-reload" id="btn-reload" title="Обновить">
+          <span class="reload-ico">🔄</span> Обновить
+        </button>
+      </div>
+      <h1 class="home-title">Игры</h1>
+      <p class="home-sub">Выбери игру</p>
+    </header>
+
+    <section class="category">
+      <h2 class="category-title">Чтение</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/slogi-slovo/index.html" role="button"><span class="game-card-icon">📝</span>
+          <span class="game-card-name">Сложи слово</span>
+        </div>
+        <div class="game-card" data-href="game/naydi-paru/index.html" role="button"><span class="game-card-icon">🎨</span>
+          <span class="game-card-name">Найди пару</span>
+        </div>
+        <div class="game-card" data-href="game/vstav-bukvu/index.html" role="button"><span class="game-card-icon">✏️</span>
+          <span class="game-card-name">Вставь букву</span>
+        </div>
+        <div class="game-card" data-href="game/prochitaj/index.html" role="button"><span class="game-card-icon">👀</span>
+          <span class="game-card-name">Прочитай и сделай</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2 class="category-title">Счёт</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/chto-bolshe/index.html" role="button"><span class="game-card-icon">⬆️</span>
+          <span class="game-card-name">Что больше?</span>
+        </div>
+        <div class="game-card" data-href="game/primery/index.html" role="button"><span class="game-card-icon">➕</span>
+          <span class="game-card-name">Простые примеры</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2 class="category-title">Окружающий мир</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/lishnee/index.html" role="button"><span class="game-card-icon">❓</span>
+          <span class="game-card-name">Что лишнее?</span>
+        </div>
+        <div class="game-card" data-href="game/sezony/index.html" role="button"><span class="game-card-icon">☀️</span>
+          <span class="game-card-name">Времена года</span>
+        </div>
+        <div class="game-card" data-href="game/kto-chto/index.html" role="button"><span class="game-card-icon">👷</span>
+          <span class="game-card-name">Кто что делает</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2 class="category-title">Память</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/memori/index.html" role="button"><span class="game-card-icon">🃏</span>
+          <span class="game-card-name">Мемори</span>
+        </div>
+        <div class="game-card" data-href="game/simon/index.html" role="button"><span class="game-card-icon">🎶</span>
+          <span class="game-card-name">Повтори</span>
+        </div>
+        <div class="game-card" data-href="game/chto-propalo/index.html" role="button"><span class="game-card-icon">👻</span>
+          <span class="game-card-name">Что пропало?</span>
+        </div>
+        <div class="game-card" data-href="game/zapomni/index.html" role="button"><span class="game-card-icon">💡</span>
+          <span class="game-card-name">Запомни и найди</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2 class="category-title">Логика и внимание</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/otlichiya/index.html" role="button"><span class="game-card-icon">🔎</span>
+          <span class="game-card-name">Найди отличия</span>
+        </div>
+        <div class="game-card" data-href="game/ryad/index.html" role="button"><span class="game-card-icon">🔢</span>
+          <span class="game-card-name">Продолжи ряд</span>
+        </div>
+        <div class="game-card" data-href="game/labirint/index.html" role="button"><span class="game-card-icon">🌀</span>
+          <span class="game-card-name">Лабиринт</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2 class="category-title">Моторика</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/pazl/index.html" role="button"><span class="game-card-icon">🎁</span>
+          <span class="game-card-name">Собери пазл</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2 class="category-title">Музыка</h2>
+      <div class="game-grid">
+        <div class="game-card" data-href="game/piano/index.html" role="button"><span class="game-card-icon">🎵</span>
+          <span class="game-card-name">Пианино</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="js/common.js"></script>
+  <script>
+    Kids.bindHomeLongPressReset();
+  </script>
+</body>
+</html>

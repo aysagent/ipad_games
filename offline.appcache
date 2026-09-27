@@ -1,0 +1,7 @@
+CACHE MANIFEST
+# escape-hatch 20260927233748082
+# generated 2026-09-27 23:37:48
+# Пустой CACHE: после обновления страницы грузятся с сети
+
+NETWORK:
+*
